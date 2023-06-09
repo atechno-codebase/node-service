@@ -13,7 +13,7 @@ func Init() {
 	if err != nil {
 		panic(err)
 	}
-	configuration = gjson.ParseBytes(content).Get("backup")
+	configuration = gjson.ParseBytes(content).Get("node")
 }
 
 func GetDBCreds() (string, string) {

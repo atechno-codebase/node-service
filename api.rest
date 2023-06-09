@@ -1,0 +1,67 @@
+http://localhost:8081
+-i
+-s
+Accept: */*
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hc3RlciIsImluc3RpdHV0ZSI6Im5pdiIsImRlc2lnbmF0aW9uIjoic3VwZXJhZG1pbiIsImlhdCI6MTY2ODM0NjQwN30.e4Hs0UXFtRiVSFmNaGqgJSXa97KaDdMWPaMVFSyeB7w
+--
+
+--
+GET /
+
+--
+GET /readings/abcdef
+
+--
+GET /archived
+
+--
+POST /add
+{
+  "uid": "abcdef",
+  "metadata": {
+    "location": "pune",
+    "sublocation": "narhe",
+    "machineName": "incubator"
+  },
+  "user": "kaustubh",
+  "parameters": [
+    {
+      "min": 0,
+      "max": 100,
+      "label": "Temperature"
+    }
+  ]
+}
+
+--
+POST /modify
+{
+  "uid": "abcdef",
+  "metadata": {
+    "location": "karad",
+    "sublocation": "satara",
+    "machineName": "heater"
+  },
+  "user": "kaustubh",
+  "parameters": [
+    {
+      "min": 1,
+      "max": 101,
+      "label": "Temperature"
+    }
+  ]
+}
+
+--
+DELETE /abcdef
+
+--
+POST /readings/all/
+{
+  "uid": "abcdef",
+  "to": "2022-11-14T12:28:00.000Z",
+  "from": "2022-11-02T12:28:00.000Z"
+}
+
+--
+GET /search/abcdef

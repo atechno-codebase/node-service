@@ -30,3 +30,14 @@ func NewReading(uid string, values ...ParameterValue) *Reading {
 		Values:   values,
 	}
 }
+
+// db.readings.insert({
+// 	"uid": "abcdef",
+// 	"datetime": 0,
+// 	"values": [
+// 	{
+// 		"label": "temperature",
+// 		"value": 69.9
+// 	}
+// 	]
+// })

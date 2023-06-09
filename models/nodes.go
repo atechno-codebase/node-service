@@ -8,6 +8,7 @@ type Parameter struct {
 	Min   float64 `json:"min" bson:"min"`
 	Max   float64 `json:"max" bson:"max"`
 	Label string  `json:"label" bson:"label"`
+	Unit  string  `json:"unit" bson:"unit"`
 }
 
 type NodeMetadata struct {

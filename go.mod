@@ -3,7 +3,10 @@ module node
 go 1.19
 
 require (
+	github.com/golang-jwt/jwt v3.2.2+incompatible
+	github.com/gorilla/mux v1.8.0
 	github.com/tidwall/gjson v1.14.3
+	github.com/tidwall/sjson v1.2.5
 	go.mongodb.org/mongo-driver v1.11.0
 )
 
