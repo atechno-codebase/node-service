@@ -11,7 +11,7 @@ import (
 var PORT string
 
 func Init() {
-	PORT = config.Get("port").String()
+	PORT = config.Configuration.Port
 	r := mux.NewRouter()
 
 	initRoutes(r)

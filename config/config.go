@@ -1,28 +1,19 @@
 package config
 
-import (
-	"io/ioutil"
+import "github.com/AbsaOSS/env-binder/env"
 
-	"github.com/tidwall/gjson"
-)
+var Configuration Config
 
-var configuration gjson.Result
+type Config struct {
+	Port         string `env:"PORT"`
+	MongoUrl     string `env:"MONGO_URL"`
+	DatabaseName string `env:"DATABASE_NAME"`
+	DbUserName   string `env:"DB_USERNAME"`
+	DbPassword   string `env:"DB_PASSWORD"`
+	SecretToken  string `env:"SECRET_TOKEN"`
+	LogPath      string `env:"LOG_PATH"`
+}
 
 func Init() {
-	content, err := ioutil.ReadFile("config.json")
-	if err != nil {
-		panic(err)
-	}
-	configuration = gjson.ParseBytes(content).Get("node")
-}
-
-func GetDBCreds() (string, string) {
-	uname := configuration.Get("db.username").String()
-	pwd := configuration.Get("db.password").String()
-
-	return uname, pwd
-}
-
-func Get(key string) gjson.Result {
-	return configuration.Get(key)
+	env.Bind(&Configuration)
 }

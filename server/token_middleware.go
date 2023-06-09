@@ -71,7 +71,8 @@ func authMiddleware(next http.Handler) http.Handler {
 			return
 		}
 
-		claims, err := VerifyToken(jwtToken, config.Get("secretToken").String())
+		secretToken := config.Configuration.SecretToken
+		claims, err := VerifyToken(jwtToken, secretToken)
 		if err != nil {
 			log.Println("error while decoding jwt token:", err)
 			log.Println(r.Header.Get("User-Agent"))

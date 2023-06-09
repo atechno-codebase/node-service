@@ -7,9 +7,6 @@ import (
 )
 
 func Init() {
-	mongoUrl := config.Get("mongoUrl").String()
-	dbName := config.Get("dbName").String()
-
-	models.Init(mongoUrl, dbName)
+	models.Init(config.Configuration.MongoUrl, config.Configuration.DatabaseName)
 	log.Println("service initialised")
 }

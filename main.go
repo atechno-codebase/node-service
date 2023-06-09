@@ -23,7 +23,7 @@ func main() {
 }
 
 func initLogging() {
-	logFolderPath := config.Get("log_path").String()
+	logFolderPath := config.Configuration.LogPath
 	logFilePath := filepath.Join(filepath.Clean(logFolderPath), "node-service.log")
 	logFile, err := os.OpenFile(logFilePath, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	logDest := io.MultiWriter(logFile, os.Stdout)
